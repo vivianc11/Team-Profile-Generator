@@ -138,19 +138,19 @@ const memberCard = (event) => {
             icon = `<i class="bi bi-mortarboard-fill"></i>`;
             break;
         case 'Engineer':
-            roleContent = `<i class="bi bi-github"></i>: ${event.getGitHub()}`;
+            roleContent = `<i class="bi bi-github"></i>: <a href='https://github.com/${event.getGitHub()}' target='_blank'>${event.getGitHub()}</a>`;
             icon = `<i class="bi bi-wrench-adjustable"></i>`;
             break;
     }
     return `<div class="card-container d-flex justify-content-around mt-5">
     <div class="card" style="width: 18rem;">
         <div class="card-body bg-warning">
-          <h5 class="card-title">${event.getName().toUpperCase()}</h5>
+          <h5 class="card-title"><strong>${event.getName().toUpperCase()}</strong></h5>
           <p class="card-text">${icon} ${event.getRole()}</p>
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">ID: <strong>${event.getId()}</strong></li>
-          <li class="list-group-item"> <i class="bi bi-envelope-fill"></i>: <strong>${event.getEmail()}</strong></li>
+          <li class="list-group-item"> <i class="bi bi-envelope-fill"></i>: <strong><a href='mailto:${event.getEmail()}' target='_blank'>${event.getEmail()}</a></strong></li>
           <li class="list-group-item"><strong>${roleContent}</strong></li>
         </ul>
       </div>
