@@ -130,15 +130,15 @@ const memberCard = (event) => {
     let icon = '';
     switch (event.getRole()) {
         case 'Manager':
-            roleContent = `Office Number: ${event.getOfficeNumber()}`;
+            roleContent = `<i class="bi bi-telephone-fill"></i>: ${event.getOfficeNumber()}`;
             icon = `<i class="bi bi-briefcase-fill"></i>`;
             break;
         case 'Intern':
-            roleContent = `School: ${event.getSchool()}`;
+            roleContent = `<i class="bi bi-journal"></i>: ${event.getSchool()}`;
             icon = `<i class="bi bi-mortarboard-fill"></i>`;
             break;
         case 'Engineer':
-            roleContent = `GitHub: ${event.getGitHub()}`;
+            roleContent = `<i class="bi bi-github"></i>: ${event.getGitHub()}`;
             icon = `<i class="bi bi-wrench-adjustable"></i>`;
             break;
     }
@@ -149,8 +149,8 @@ const memberCard = (event) => {
           <p class="card-text">${icon} ${event.getRole()}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: ${event.getId()}</li>
-          <li class="list-group-item">Email: ${event.getEmail()}</li>
+          <li class="list-group-item"><i class="bi bi-credit-card-2-front"></i>: ${event.getId()}</li>
+          <li class="list-group-item"> <i class="bi bi-envelope-fill"></i>: ${event.getEmail()}</li>
           <li class="list-group-item">${roleContent}</li>
         </ul>
       </div>
