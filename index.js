@@ -142,19 +142,17 @@ const memberCard = (event) => {
             icon = `<i class="bi bi-wrench-adjustable"></i>`;
             break;
     }
-    return `<div class="card-container d-flex justify-content-around mt-5">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body bg-warning">
-          <h5 class="card-title"><strong>${event.getName().toUpperCase()}</strong></h5>
-          <p class="card-text">${icon} ${event.getRole()}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">ID: <strong>${event.getId()}</strong></li>
-          <li class="list-group-item"> <i class="bi bi-envelope-fill"></i>: <strong><a href='mailto:${event.getEmail()}' target='_blank'>${event.getEmail()}</a></strong></li>
-          <li class="list-group-item"><strong>${roleContent}</strong></li>
-        </ul>
-      </div>
-</div>`;
+    return `<div class="card" style="width: 18rem;">
+                <div class="card-body bg-warning">
+                    <h5 class="card-title"><strong>${event.getName().toUpperCase()}</strong></h5>
+                    <p class="card-text">${icon} ${event.getRole()}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: <strong>${event.getId()}</strong></li>
+                    <li class="list-group-item"> <i class="bi bi-envelope-fill"></i>: <strong><a href='mailto:${event.getEmail()}' target='_blank'>${event.getEmail()}</a></strong></li>
+                    <li class="list-group-item"><strong>${roleContent}</strong></li>
+                </ul>
+            </div>`;
 }
 
 const displayTeamMembers = (employees) => {
@@ -179,7 +177,9 @@ const generateHTML = (employees) => {
     
     <body>
         <header class="fs-1 text-center bg-primary text-white">Meet Members of the Team!</header>
+        <div class="card-container d-flex justify-content-around mt-5">
         ${displayTeamMembers(employees)}
+        </div>
     </body>
     </html>`;
 }
