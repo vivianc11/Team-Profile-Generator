@@ -1,3 +1,4 @@
+// Importing
 const inquirer = require("inquirer");
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
@@ -10,7 +11,7 @@ const employees = [];
 function init() {
     questions();
 }
-
+// Generating prompts in the terminal for user input
 const questions = () => {
     inquirer.prompt ([
         {
@@ -34,6 +35,7 @@ const questions = () => {
             message: "What's the manager's office number?",
         }
     ])
+    // retrieving the responses for manager position
     .then((response) => {
         const manager = new Manager (
             response.managerName,
@@ -41,6 +43,7 @@ const questions = () => {
             response.managerEmail,
             response.managerOfficeNumber,
         )
+        // Adding manager into employees array
         employees.push(manager);
         moreQuestions();
     })
@@ -76,12 +79,14 @@ const moreQuestions = () => {
             type: 'input',
             name: 'internSchool',
             message: 'What school is the Intern from?',
+            // checking when the intern role is selected
             when: (answer) => answer.employeeRole === 'Intern',
         },
         {
             type: 'input',
             name: 'engineerGithub',
             message: "What is the engineer's GitHub username?",
+            // checking when the engineer role is selected
             when: (answer) => answer.employeeRole === 'Engineer',
         },
         {
@@ -90,6 +95,7 @@ const moreQuestions = () => {
             message: 'Do you need to add more employees?'
         }
     ])
+    // retrieving responses for intern position
     .then((answers) => {
         if(answers.employeeRole === 'Intern') {
             const intern = new Intern(
@@ -99,6 +105,7 @@ const moreQuestions = () => {
                 answers.internSchool
             );
             employees.push(intern);
+        // retrieving responses for engineer position
         } else if (answers.employeeRole === 'Engineer') {
             const engineer = new Engineer(
                 answers.employeeName,
@@ -108,23 +115,25 @@ const moreQuestions = () => {
             );
             employees.push(engineer);
         }
+        // if the user answered the YES to needing to add more employees
         if (answers.repeatQuestions === true) {
             moreQuestions();
         } else {
-            //create HTML file
+            // create HTML file
             const DIST_DIR = path.resolve(__dirname, 'dist');
             const distPath = path.join(DIST_DIR, 'team.html')
             createFile(distPath, generateHTML(employees))
         }
     })
 }
-
+// Function to create an HTML file with parameters for file name and data that goes into the file
 function createFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         err? console.error(`There was an error ${err}`) : console.log('File created!');
     })
 }
 
+// Creating the individal team member cards
 const memberCard = (event) => {
     let roleContent;
     let icon = '';
@@ -155,6 +164,7 @@ const memberCard = (event) => {
             </div>`;
 }
 
+// Adding the cards into an array
 const displayTeamMembers = (employees) => {
     let teamArray = [];
     employees.forEach((event) => {
@@ -163,6 +173,7 @@ const displayTeamMembers = (employees) => {
     return teamArray.join('');
 }
 
+// Generating the full HTML
 const generateHTML = (employees) => {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -184,4 +195,5 @@ const generateHTML = (employees) => {
     </html>`;
 }
 
+// Intializing the team profile generator
 init();

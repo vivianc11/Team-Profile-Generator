@@ -48,3 +48,4 @@ THEN I exit the application, and the HTML is generated
 - Using switch/cases
 
 ## Link to Walkthrough Video
+https://drive.google.com/file/d/1ZQDIzd_qyehqTHZh7GLDmx0QOZA4HLRp/view
