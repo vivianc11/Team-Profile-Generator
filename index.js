@@ -149,9 +149,9 @@ const memberCard = (event) => {
           <p class="card-text">${icon} ${event.getRole()}</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><i class="bi bi-credit-card-2-front"></i>: ${event.getId()}</li>
-          <li class="list-group-item"> <i class="bi bi-envelope-fill"></i>: ${event.getEmail()}</li>
-          <li class="list-group-item">${roleContent}</li>
+          <li class="list-group-item">ID: <strong>${event.getId()}</strong></li>
+          <li class="list-group-item"> <i class="bi bi-envelope-fill"></i>: <strong>${event.getEmail()}</strong></li>
+          <li class="list-group-item"><strong>${roleContent}</strong></li>
         </ul>
       </div>
 </div>`;
