@@ -1,0 +1,27 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "team profile generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vivianc11/Team-Profile-Generator.git"
+  },
+  "author": "vivianchen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vivianc11/Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/vivianc11/Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^9.1.2",
+    "jest": "^29.0.3"
+  }
+}
